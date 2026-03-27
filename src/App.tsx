@@ -75,20 +75,20 @@ export default function App() {
     const fillingsStr = order.fillings.map(f => f.name).join(', ');
     const toppingsStr = order.toppings.map(t => t.name).join(', ');
     
-    const message = `*NOVO PEDIDO DALLAS #${orderId}*%0A` +
-      `---%0A` +
-      `*${order.container?.name} personalizado*%0A` +
-      `• *Base:* ${order.base?.name}%0A` +
-      `• *Recheio:* ${fillingsStr || 'Nenhum'}%0A` +
-      `• *Finalização:* ${toppingsStr || 'Nenhum'}%0A` +
-      `---%0A` +
-      `*Total:* R$ ${total.toFixed(2)}%0A` +
-      `*Cliente:* ${data.name}%0A` +
-      `*Entrega:* ${data.address}%0A` +
-      `*Complemento:* ${data.complement || 'N/A'}%0A` +
+    const message = `*NOVO PEDIDO DALLAS #${orderId}*\n` +
+      `---\n` +
+      `*${order.container?.name} personalizado*\n` +
+      `- *Base:* ${order.base?.name}\n` +
+      `- *Recheio:* ${fillingsStr || 'Nenhum'}\n` +
+      `- *Finalização:* ${toppingsStr || 'Nenhum'}\n` +
+      `---\n` +
+      `*Total:* R$ ${total.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}\n` +
+      `*Cliente:* ${data.name}\n` +
+      `*Entrega:* ${data.address}\n` +
+      `*Complemento:* ${data.complement || 'N/A'}\n` +
       `*Pagamento:* ${data.payment}`;
     
-    window.open(`https://api.whatsapp.com/send?phone=5591991883384&text=${message}`, '_blank');
+    window.open(`https://api.whatsapp.com/send?phone=5591991883384&text=${encodeURIComponent(message)}`, '_blank');
   };
 
   return (
@@ -107,7 +107,7 @@ export default function App() {
           >
             <div className="flex flex-col items-end">
               <span className="text-[8px] md:text-[10px] font-bold uppercase tracking-widest opacity-40 group-hover:opacity-60">Meu Carrinho</span>
-              <span className="text-xs md:text-sm font-bold">R$ {total.toFixed(2)}</span>
+              <span className="text-xs md:text-sm font-bold">R$ {total.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</span>
             </div>
             <ShoppingBag size={18} className="md:w-5 md:h-5" />
           </button>
@@ -224,7 +224,7 @@ export default function App() {
           <div className="flex items-center gap-4 md:gap-8">
             <div className="text-right">
               <p className="text-[8px] md:text-[10px] font-bold uppercase tracking-widest text-black/40">Total Atual</p>
-              <p className="text-xl md:text-3xl font-bold text-brand-deep">R$ {total.toFixed(2)}</p>
+              <p className="text-xl md:text-3xl font-bold text-brand-deep">R$ {total.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</p>
             </div>
             {step < 4 ? (
               <button 

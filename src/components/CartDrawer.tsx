@@ -73,7 +73,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                           <p className="text-[10px] uppercase tracking-widest text-black/40 font-bold mb-1">Recipiente</p>
                           <p className="font-bold text-base md:text-lg">{order.container.name}</p>
                         </div>
-                        <p className="font-bold">R$ {order.container.price.toFixed(2)}</p>
+                        <p className="font-bold">R$ {order.container.price.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</p>
                       </div>
                     )}
 
@@ -84,7 +84,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                           <p className="text-[10px] uppercase tracking-widest text-black/40 font-bold mb-1">Base</p>
                           <p className="font-bold text-base md:text-lg">{order.base.name}</p>
                         </div>
-                        <p className="font-bold">R$ {order.base.price.toFixed(2)}</p>
+                        <p className="font-bold">R$ {order.base.price.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</p>
                       </div>
                     )}
 
@@ -96,7 +96,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                           <div key={item.id} className="flex justify-between items-center group">
                             <p className="font-medium text-sm md:text-base">{item.name}</p>
                             <div className="flex items-center gap-4">
-                              <p className="font-bold text-sm md:text-base">R$ {item.price.toFixed(2)}</p>
+                              <p className="font-bold text-sm md:text-base">R$ {item.price.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</p>
                               <button 
                                 onClick={() => onRemoveItem('filling', item.id)}
                                 className="p-1 text-red-500 hover:bg-red-50 rounded transition-smooth"
@@ -117,7 +117,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                           <div key={item.id} className="flex justify-between items-center group">
                             <p className="font-medium text-sm md:text-base">{item.name}</p>
                             <div className="flex items-center gap-4">
-                              <p className="font-bold text-sm md:text-base">R$ {item.price.toFixed(2)}</p>
+                              <p className="font-bold text-sm md:text-base">R$ {item.price.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</p>
                               <button 
                                 onClick={() => onRemoveItem('topping', item.id)}
                                 className="p-1 text-red-500 hover:bg-red-50 rounded transition-smooth"
@@ -194,7 +194,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
             <div className="p-6 md:p-8 border-t border-black/5 bg-brand-offwhite/50">
               <div className="flex justify-between items-end mb-6 md:mb-8">
                 <span className="text-black/40 font-bold uppercase tracking-widest text-[10px]">Total</span>
-                <span className="text-3xl md:text-4xl font-bold text-brand-deep">R$ {total.toFixed(2)}</span>
+                <span className="text-3xl md:text-4xl font-bold text-brand-deep">R$ {total.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</span>
               </div>
 
               {step === 'review' ? (

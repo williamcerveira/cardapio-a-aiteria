@@ -29,7 +29,7 @@ export const BASES: Ingredient[] = [
   { id: 'acai-tradicional', name: 'Açaí Tradicional', image: '/assets/images/bases/acai-tradicional.png', price: 0, category: 'base' },
   { id: 'acai-zero', name: 'Açaí Zero Açúcar', image: '/assets/images/bases/acai-zero.png', price: 0, category: 'base' },
   { id: 'acai-banana', name: 'Açaí com Banana', image: '/assets/images/bases/acai-banana.png', price: 2, category: 'base' },
-  { id: 'sorvete-ninho', name: 'Sorvete de Ninho', image: '/assets/images/bases/sorvete-ninho.png', price: 5, category: 'base' },
+  { id: 'sorvete-ninho', name: 'Açaí com Ninho', image: '/assets/images/bases/sorvete-ninho.png', price: 5, category: 'base' },
   { id: 'sorvete-morango', name: 'Sorvete de Morango', image: '/assets/images/bases/sorvete-morango.png', price: 5, category: 'base' },
 ];
 
@@ -40,6 +40,8 @@ export const FILLINGS: Ingredient[] = [
   { id: 'creme-ninho', name: 'Creme de Ninho', image: '/assets/images/fillings/creme-ninho.png', price: 5, category: 'filling' },
   { id: 'uva', name: 'Uva Sem Semente', image: '/assets/images/fillings/uva.png', price: 4, category: 'filling' },
   { id: 'kiwi', name: 'Kiwi', image: '/assets/images/fillings/kiwi.png', price: 4, category: 'filling' },
+  { id: 'mm', name: 'M&M', image: '/assets/images/fillings/mm.png', price: 4, category: 'filling' },
+
 ];
 
 export const TOPPINGS: Ingredient[] = [

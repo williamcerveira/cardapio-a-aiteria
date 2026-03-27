@@ -11,11 +11,11 @@ interface IngredientItemProps {
   isHero?: boolean;
 }
 
-export const IngredientItem: React.FC<IngredientItemProps> = ({ 
-  name, 
-  image, 
-  price, 
-  isSelected, 
+export const IngredientItem: React.FC<IngredientItemProps> = ({
+  name,
+  image,
+  price,
+  isSelected,
   onClick,
   isHero = false
 }) => {
@@ -23,25 +23,22 @@ export const IngredientItem: React.FC<IngredientItemProps> = ({
     <motion.button
       whileTap={{ scale: 0.98 }}
       onClick={onClick}
-      className={`relative flex flex-col items-center transition-smooth group ${
-        isHero ? 'w-full' : 'w-full'
-      }`}
+      className={`relative flex flex-col items-center transition-smooth group ${isHero ? 'w-full' : 'w-full'
+        }`}
     >
-      <div className={`relative overflow-hidden transition-smooth ${
-        isHero 
-          ? 'aspect-[4/5] w-full rounded-[2rem] mb-4' 
+      <div className={`relative overflow-hidden transition-smooth ${isHero
+          ? 'aspect-[4/5] w-full rounded-[2rem] mb-4'
           : 'w-24 h-24 rounded-full mb-3'
-      } ${
-        isSelected ? 'ring-2 ring-brand-deep ring-offset-4' : 'ring-1 ring-black/5'
-      }`}>
-        <img 
-          src={image} 
-          alt={name} 
+        } ${isSelected ? 'ring-2 ring-brand-deep ring-offset-4' : 'ring-1 ring-black/5'
+        }`}>
+        <img
+          src={image}
+          alt={name}
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
           referrerPolicy="no-referrer"
         />
         {isSelected && (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             className="absolute inset-0 bg-brand-deep/20 flex items-center justify-center backdrop-blur-[2px]"
@@ -52,13 +49,13 @@ export const IngredientItem: React.FC<IngredientItemProps> = ({
           </motion.div>
         )}
       </div>
-      
+
       <div className="text-center">
         <h3 className={`font-bold text-brand-graphite ${isHero ? 'text-xl' : 'text-sm'}`}>
           {name}
         </h3>
         <p className="text-xs font-medium text-brand-deep/60 mt-0.5">
-          {price === 0 ? 'Incluso' : `+ R$ ${price.toFixed(2)}`}
+          {price === 0 ? 'Incluso' : `+ R$ ${price.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}`}
         </p>
       </div>
     </motion.button>
